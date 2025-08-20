@@ -33,10 +33,71 @@ video {
   display: block;
   max-width: 100%;
 }
+.keyboardCont {
+  height: 10rem;
+  display: flex;
+}
+.octaveCont {
+  width: 15rem;
+  position: relative;
+}
+.whiteKeyCont {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: stretch;
+}
+.whiteKey {
+  flex: 1;
+  padding: 0;
+  background-color: rgb(242, 83, 221);
+}
+.whiteKey:hover {
+  cursor: pointer;
+}
+.whiteKey:active {
+  filter: invert();
+}
+.blackKeyCont {
+  position: absolute;
+  top: 0%;
+  display: flex;
+  height: 55%;
+  width: 100%;
+  align-items: stretch;
+  pointer-events: none;
+}
+.blackKey {
+  flex: 1;
+  padding: 0;
+  pointer-events: all;
+  background: linear-gradient(to bottom, rgb(143, 139, 139), rgb(9, 7, 7));
+}
+.ghostKey {
+  flex: 0.5;
+}
+body {
+  min-height: 100vh;
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
 
 /* .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.  */
 /* Storing custom CSS properties */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties */
+
+:root{
+  --colour01: rgb(55,55,97);
+  --colour02: rgb(236,143,143);
+  --border: solid 0.1rem var var(--colour01)
+}
+@media (prefers-color-scheme: light){
+ :root{
+  --colour01: rgb(55,55,97);
+  --colour02: rgb(236,143,143);
+ }
+}
 
 /* .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.  */
 /* Intro Modal dialog */
@@ -45,9 +106,9 @@ video {
 dialog[open] {
   margin: auto; /* place in centre */
   padding: 1rem;
-  /* background-color: var(--col01); */
-  /* color: var(--col02); */
-  /* border: var(--border); */
+  background-color: var(--col01); */
+  color: var(--col02); */
+  border: var(--border); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +123,41 @@ dialog::backdrop {
   ); /* background overlay when modal is open */
 }
 #dialogCloseButton {
-  /* background-color: var(--col01); */
-  /* color: var(--col02); */
+  background-color: var(--col01); */
+  color: var(--col02); */
   padding: 0 1rem;
+}
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
 }
